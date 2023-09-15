@@ -56,11 +56,18 @@ const onMouseUp = () => {
 
 const onStaticBoxClick = () => {
     infoBox.style.display = "block";
+    staticBox.style.display = "none";
+}
+
+const onInfoBoxClick = () => {
+    staticBox.style.display = "block";
+    infoBox.style.display = "none";
 }
 
 // Attach event listeners
 staticBox.addEventListener("mousedown", onMouseDown);
 staticBox.addEventListener("click", onStaticBoxClick);
+infoBox.addEventListener("click", onInfoBoxClick);
 document.addEventListener("mousemove", onMouseMove);
 document.addEventListener("mouseup", onMouseUp);
 
