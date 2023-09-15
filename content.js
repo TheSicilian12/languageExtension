@@ -33,10 +33,16 @@ infoBox.style.cursor = "move";
 infoBox.style.display = "none";
 
 // Function to handle mouse down event
-const onMouseDown = (e) => {
+const onMouseDownStatic = (e) => {
     isDragging = true;
     offsetX = e.clientX - staticBox.getBoundingClientRect().left;
     offsetY = e.clientY - staticBox.getBoundingClientRect().top;
+};
+
+const onMouseDownInfo = (e) => {
+    isDragging = true;
+    offsetX = e.clientX - infoBox.getBoundingClientRect().left;
+    offsetY = e.clientY - infoBox.getBoundingClientRect().top;
 };
 
 // Function to handle mouse move event
@@ -65,9 +71,12 @@ const onInfoBoxClick = () => {
 }
 
 // Attach event listeners
-staticBox.addEventListener("mousedown", onMouseDown);
+staticBox.addEventListener("mousedown", onMouseDownStatic);
 staticBox.addEventListener("click", onStaticBoxClick);
+
+infoBox.addEventListener("mousedown", onMouseDownInfo);
 infoBox.addEventListener("click", onInfoBoxClick);
+
 document.addEventListener("mousemove", onMouseMove);
 document.addEventListener("mouseup", onMouseUp);
 
